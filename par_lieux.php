@@ -11,13 +11,19 @@
   <?php include 'include/affiche.php' ?>
 <div id="right">
   <div id="link">
-    <a href="#">ardeche</a> |
-    <a href="#">loire</a> |
-    <a href="#">rhone</a> |
-    <a href="#">isere</a> |
-    <a href="#">ain</a> |
-    <a href="#">drome</a> |
+    <a href="?ardeche">ardeche</a> |
+    <a href="?loire">loire</a> |
+    <a href="?rhone">rhone</a> |
+    <a href="?isere">isere</a> |
+    <a href="?ain">ain</a> |
+    <a href="?drome">drome</a> |
   </div>
+  <?php
+  if (strpos($_SERVER['REQUEST_URI'], "ardeche") !== false){
+  include 'include/ardeche.php';
+
+  }
+  ?>
 </div>
 </div>
   </body>

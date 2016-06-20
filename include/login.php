@@ -1,30 +1,26 @@
 <?php
- include_once 'connbdd.php';
-	mysql_select_db($nom_base_donnees, $conn);
-if(isset($_POST) && !empty($_POST['login']) && !empty($_POST['pass'])) {
- extract($_POST);
- $pass_hache = hash('sha256',$_POST['pass']);
+session_start();
 
- $sql = "select pwd from user where login='".$login."'";
- $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
- $data = mysql_fetch_assoc($req);
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=soundgood', 'root', '');
 
-
- if($data['pwd'] != $pass_hache) {
-   echo '<p>Mauvais login / password. Merci de recommencer</p>';
-   include('connection.php');
-   exit;
- }
- else {
-   session_start();
-   $_SESSION['login'] = $login;
-   echo "Connexion réussie";
-   include 'redirection.php';
- }
-}
-else {
- echo '<p>Vous avez oublié de remplir un champ.</p>';
-  include('connection.php');
-  exit;
+if(isset($_POST['formconnexion'])) {
+   $mailconnect = htmlspecialchars($_POST['mailconnect']);
+   $mdpconnect = sha1($_POST['mdpconnect']);
+   if(!empty($mailconnect) AND !empty($mdpconnect)) {
+      $requser = $bdd->prepare("SELECT * FROM user WHERE mail = ? AND pwd = ?");
+      $requser->execute(array($mailconnect, $mdpconnect));
+      $userexist = $requser->rowCount();
+      if($userexist == 1) {
+         $userinfo = $requser->fetch();
+         $_SESSION['id'] = $userinfo['id'];
+         $_SESSION['pseudo'] = $userinfo['pseudo'];
+         $_SESSION['mail'] = $userinfo['mail'];
+         header("Location: accueil.php");
+      } else {
+         $erreur = "Mauvais mail ou mot de passe !";
+      }
+   } else {
+      $erreur = "Tous les champs doivent être complétés !";
+   }
 }
 ?>

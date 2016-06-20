@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include 'include/connbdd1.php';
+include 'include/login.php';
  ?>
 <html>
   <head>
@@ -52,13 +52,21 @@ function carousels() {
 }
 </script>
 <div id="right">
-  <form method="post" action="">
-    <label>username:</label>
-  <input id="log" type="text" name="login" placeholder="Nom d'utilisateur"> <br>
-  <label>password:</label>
-  <input id="pass" type="password" name="pass" placeholder="Mot de passe"><br>
-  <input id="sub" type="submit" name="submit" value="Connexion">
-  </form>
+  <div align="center">
+     <h2>Connexion</h2>
+     <br /><br />
+     <form method="POST" action="">
+        <input type="email" name="mailconnect" placeholder="Mail" />
+        <input type="password" name="mdpconnect" placeholder="Mot de passe" />
+        <br /><br />
+        <input type="submit" name="formconnexion" value="Se connecter !" />
+     </form>
+     <?php
+     if(isset($erreur)) {
+        echo '<font color="red">'.$erreur."</font>";
+     }
+     ?>
+  </div>
   <script type="text/javascript">
     $(document).ready(function() {
       $('#log').hide(0).delay(250).fadeIn(1000);

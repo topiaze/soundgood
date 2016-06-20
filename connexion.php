@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include 'include/connbdd1.php';
+ ?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -49,7 +52,7 @@ function carousels() {
 }
 </script>
 <div id="right">
-  <form method="post" action="include/login.php">
+  <form method="post" action="">
     <label>username:</label>
   <input id="log" type="text" name="login" placeholder="Nom d'utilisateur"> <br>
   <label>password:</label>

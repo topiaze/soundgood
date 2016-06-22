@@ -1,8 +1,6 @@
 <?php
 session_start();
-
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=soundgood', 'root', '');
-
+require 'variables.php';
 if(isset($_POST['formconnexion'])) {
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
    $mdpconnect = sha1($_POST['mdpconnect']);

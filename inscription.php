@@ -8,6 +8,7 @@ include 'include/Inscription.php';
     <meta charset="utf-8">
     <title>Sound's Good</title>
     <link rel="stylesheet"href="stylesheets.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   </head>
   <body>
@@ -23,7 +24,6 @@ include 'include/Inscription.php';
   <script>
 var myIndex = 0;
 carousel();
-
 function carousel() {
     var i;
     var x = document.getElementsByClassName("top_i");
@@ -39,7 +39,6 @@ function carousel() {
 <script>
 var myIndexs = 0;
 carousels();
-
 function carousels() {
   var i;
   var x = document.getElementsByClassName("bot_i");

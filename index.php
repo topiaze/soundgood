@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Sound's Good</title>
     <link rel="stylesheet" href="stylesheets.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   </head>
   <body>
@@ -23,7 +24,7 @@
     </header>
     <div class="conteneur">
       <div id="choose">
-        <a href="accueil.php" class="btn">Continuer vers Sound'sGood.com</a>
+        <a href="accueil.php"><button type="button" ty name="grosboutonrouge"id="btnrouge">Continuer vers Sound'sGood.com</button></a>
       </div>
     </div>
   </body>
